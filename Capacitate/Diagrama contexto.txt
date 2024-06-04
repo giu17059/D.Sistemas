@@ -1,0 +1,23 @@
+@startuml
+!include <C4/C4_Container>
+
+title Sistema de contexto de "Capacitate"
+
+Person(cliente, "Cliente de Capacitate", "Es una persona que está registrada como tal en Capacitate")
+Person(Admin, "Administrador", "Es una persona encargada de dar de alta y baja capacitaciones")
+Person(empresa, "Empresa", "Persona juridica registrada en el sistema capaz de consultar estados de ciertos usuarios")
+
+System_Boundary(c1, "Sitio web Capacitate") {
+    System(sistema_clientes, "Sistema de Clientes", "Permite a sus clientes consultar capacitaciones, realizarlas y consultar el progreso individual.")
+    ContainerDb(base_datos, "Base de datos", "Usuarios, cursos, info. inicio, etc.")
+}
+
+System_Ext(E_mail, "Sistema E-mails", "Web service de Gmail para enviar E-mails")
+
+Rel(cliente, sistema_clientes, "Usa")
+Rel(sistema_clientes, E_mail, "Enviar E-mail con", "Cursos disponibles, avisos")
+Rel_Back(cliente, E_mail, "Enviar E-mail a")
+Rel(Admin, sistema_clientes, "Modifica")
+Rel(sistema_clientes,base_datos,"Lee y escribe")
+Rel(empresa,sistema_clientes, "Usa")
+@enduml
