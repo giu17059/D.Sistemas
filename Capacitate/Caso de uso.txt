@@ -1,0 +1,32 @@
+@startuml
+
+left to right direction
+
+actor Administrador
+actor Empresa
+actor Empleado
+actor Gerencia
+
+rectangle SistemaCapacitate {
+    usecase "Registrar usuarios administradores" as UC1
+    usecase "Crear capacitaciones" as UC2
+    usecase "Registrar empresas" as UC3
+    usecase "Consultar capacitaciones disponibles" as UC4
+    usecase "Crear empleados" as UC5
+    usecase "Asignar capacitaciones a empleados" as UC6
+    usecase "Visualizar capacitaciones disponibles" as UC7
+    usecase "Acceder a capacitaciones asignadas" as UC8
+    usecase "Completar cuestionario" as UC9
+}
+
+Gerencia -- UC1
+Administrador -- UC2
+Empresa -- UC3
+Empresa -- UC4
+Empresa -- UC5
+Empresa -- UC6
+Empleado -- UC7
+Empleado -- UC8
+Empleado -- UC9
+
+@enduml

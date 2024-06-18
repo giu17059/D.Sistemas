@@ -1,0 +1,38 @@
+@startuml
+
+class empleado{
+nombre
+apellido
+DNI
+domicilio
+e-mail
+contraseña
+}
+class categoria{
+nombre
+decripcion
+}
+class empresa{
+razon social
+direccion
+e-mail
+contraseña
+}
+class capacitacion{
+titulo
+descripcion
+archivos
+material multimedia
+cuestionario
+
+}
+class administrador{
+legajo
+contraseña
+}
+categoria --{ capacitacion
+empleado}-- empresa
+empresa }-- capacitacion
+administrador--{capacitacion
+
+@enduml
